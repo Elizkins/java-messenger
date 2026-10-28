@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "256714021015",
+    "project_id": "messenger-7dc9e",
+    "storage_bucket": "messenger-7dc9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256714021015:android:4fe264a38863edd45771d2",
+        "android_client_info": {
+          "package_name": "com.semenova.javamessenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALAVq-lL3ferCc9Sk78RD62eKUpBzcfbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256714021015:android:744d015e99d7bd155771d2",
+        "android_client_info": {
+          "package_name": "com.semenova.messengerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALAVq-lL3ferCc9Sk78RD62eKUpBzcfbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
