@@ -14,22 +14,32 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.semenova.javamessenger.R;
+import com.semenova.javamessenger.domain.User;
 import com.semenova.javamessenger.presentation.login.LoginActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsersActivity extends AppCompatActivity {
 
     private static final String EXTRA_USER = "user";
+    private RecyclerView recyclerViewUsers;
     private UsersViewModel viewModel;
+    private UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_users);
         initViews();
+
+        userAdapter = new UserAdapter();
+        recyclerViewUsers.setAdapter(userAdapter);
+
         viewModel = new ViewModelProvider(this).get(UsersViewModel.class);
         observeViewModel();
     }
@@ -38,7 +48,7 @@ public class UsersActivity extends AppCompatActivity {
         viewModel.getUser().observe(this, new Observer<FirebaseUser>() {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
-                if(firebaseUser == null){
+                if (firebaseUser == null) {
                     Intent intent = LoginActivity.newIntent(UsersActivity.this);
                     startActivity(intent);
                     finish();
@@ -48,7 +58,7 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-
+        recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
     }
 
     public static Intent newIntent(Context context, FirebaseUser user) {
