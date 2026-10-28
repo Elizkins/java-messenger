@@ -11,6 +11,7 @@ constraintlayout = "2.2.2"
 googleSerivices = "4.5.0"
 
 [libraries]
+firebase-database = { module = "com.google.firebase:firebase-database" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

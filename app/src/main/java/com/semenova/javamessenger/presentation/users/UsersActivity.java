@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.semenova.javamessenger.R;
 import com.semenova.javamessenger.domain.User;
 import com.semenova.javamessenger.presentation.login.LoginActivity;
+import com.semenova.javamessenger.presentation.register.RegisterActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,22 @@ public class UsersActivity extends AppCompatActivity {
                     Intent intent = LoginActivity.newIntent(UsersActivity.this);
                     startActivity(intent);
                     finish();
+                }
+            }
+        });
+        viewModel.getErrorMessage().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String errorMessage) {
+                if (errorMessage != null) {
+                    Toast.makeText(UsersActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        viewModel.getUsers().observe(this, new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> users) {
+                if (users != null) {
+                    userAdapter.setUsers(users);
                 }
             }
         });
